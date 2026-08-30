@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic blog on IoT disaster monitoring and early warning systems.">
+  <title>IoT Disaster Monitoring & Early Warning Systems</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#top"><span>IO</span> IoT Field Notes</a>
+  <button class="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav><a href="#introduction">Introduction</a><a href="#works">How It Works</a><a href="#applications">Applications</a><a href="#concepts">IoT Concepts</a><a href="#sdgs">SDGs</a><a href="#challenges">Challenges</a><a href="#references">References</a></nav>
+</header>
+<main id="top">
+<section class="hero">
+  <div>
+    <p class="eyebrow">Internet of Things · Technical Blog</p>
+    <h1>Disaster Monitoring and Early Warning Systems <em>Using IoT Data Platforms</em></h1>
+    <p class="subtitle">How connected sensors can turn environmental data into early action.</p>
+    <div class="meta">
+      <span><b>Group</b>Group 9</span>
+      <span class="members"><b>Group members</b>Nagare Ayush Dhanaji · Narvekar Aarya Nitin · Navundru Akhila Nageswararao · Panwalkar Sahil Suhas</span>
+      <span><b>Course</b>Internet of Things</span>
+      <span><b>Institution</b>Shah and Anchor Kutchhi Engineering College</span>
+      <span><b>Reading time</b>6 minutes</span>
+    </div>
+  </div>
+  <svg class="hero-art" viewBox="0 0 620 430" role="img" aria-label="Sensors sending environmental data to an emergency alert centre">
+    <path class="hill" d="M20 324C110 248 146 367 229 305s125-19 172 4 88-43 199-5"/><path class="water" d="M0 338c73-29 117 27 181 0s112 23 182 0 119 26 257-2v94H0Z"/><circle class="sun" cx="500" cy="75" r="39"/><path class="cloud" d="M93 128c0-24 19-43 43-43 18 0 33 10 40 25 5-3 12-5 19-5 21 0 38 17 38 38H93Z"/>
+    <g class="line"><path d="M307 273V125M278 273h58M291 194h32M298 158h18"/><circle cx="307" cy="118" r="8"/><path d="M275 144c-30-29-30-53 0-79M339 144c30-29 30-53 0-79"/><rect x="92" y="272" width="88" height="58" rx="8"/><rect x="418" y="205" width="133" height="87" rx="13"/></g><path class="data" d="M180 287C220 270 248 236 290 207M327 199c35 11 56 28 91 50"/>
+  </svg>
+</section>
+<article>
+<section id="introduction" class="section">
+  <p class="label">01 / INTRODUCTION</p><h2>When every second matters</h2>
+  <p class="lead">Consider a simple situation: heavy rain continues through the night and a river near a village begins to rise. Manual observation may detect the danger late. An ultrasonic water-level sensor can instead measure the river continuously, while a rain gauge adds local context. A controller sends both readings to an online platform where officials can see the change as it happens.</p>
+  <p>Disaster monitoring means observing environmental conditions that may become hazardous. An early warning system goes further: it combines monitoring, analysis, communication and preparedness so people can take timely action before impact <a href="#ref1">[1]</a>. IoT supports the monitoring and communication parts by keeping remote sensing points connected. It cannot stop a flood, fire or earthquake, but it can shorten the gap between detecting danger and responding to it.</p>
+</section>
+<section id="works" class="section">
+  <p class="label">02 / SYSTEM FLOW</p><h2>How IoT disaster monitoring works</h2>
+  <p>Sensors measure physical changes such as water level, temperature, smoke, soil moisture or vibration. A microcontroller such as an ESP32 reads them. An IoT gateway can filter or combine readings before transmission. Wi-Fi suits covered locations; LoRaWAN supports long-range, low-power links; NB-IoT and cellular networks help where telecom coverage is available.</p>
+  <div class="flow">
+    <div><b>01 Hazard</b><small>Rain, heat, ground movement</small></div><div><b>02 Sensors</b><small>Level, smoke, moisture, seismic</small></div><div><b>03 ESP32 / Gateway</b><small>Collects and prepares readings</small></div><div><b>04 Network</b><small>LoRaWAN · Wi-Fi · NB-IoT</small></div><div><b>05 IoT Platform</b><small>Stores the live data stream</small></div><div><b>06 Data Analysis</b><small>Checks trends and thresholds</small></div><div><b>07 Emergency Alert</b><small>SMS · app · siren · dashboard</small></div><div><b>08 People & Authorities</b><small>Receive warning and act</small></div>
+  </div>
+  <p>The cloud platform stores time-stamped data and feeds a dashboard. Edge processing can check urgent conditions near the sensor. If the system finds a validated danger pattern, it can trigger an SMS, app notification, siren or control-room alert. A reading becomes useful only when it reaches someone who can act.</p>
+</section>
+<section id="applications" class="section">
+  <p class="label">03 / FIELD USES</p><h2>One platform, different hazards</h2>
+  <div class="cards"><div><strong>≈</strong><h3>Flood</h3><p>River-level and rainfall sensors track rising water.</p></div><div><strong>△</strong><h3>Forest fire</h3><p>Heat, smoke and gas readings indicate unusual conditions.</p></div><div><strong>↘</strong><h3>Landslide</h3><p>Soil moisture, tilt and ground movement reveal instability.</p></div><div><strong>⌁</strong><h3>Earthquake</h3><p>Seismic sensors detect fast ground motion for rapid alerts.</p></div></div>
+  <p>Weather and cyclone monitoring also combine ground stations, forecasts and communication networks. In a real disaster scenario, one reading should not automatically cause panic. The platform can compare several sensors, recent trends and known risk limits before an authorised warning is issued. Multi-channel communication matters because one network may fail <a href="#ref4">[4]</a>.</p>
+</section>
+<section id="concepts" class="section two">
+  <div><p class="label">04 / MODULE CONNECTION</p><h2>From sensor to useful alert</h2><p>The chain connects common IoT module concepts: sensor → ESP32/controller → MQTT or another network protocol → IoT data platform → analytics → alert. MQTT publishes small sensor messages to organised topics. The platform supports data collection, real-time monitoring, dashboards and threshold rules. Actuators may switch a siren or warning light after an approved command.</p></div>
+  <div class="code"><b>Simple learning example</b><pre>if waterLevel &gt; dangerThreshold:
+    sendAlert()
+else:
+    continueMonitoring()</pre><small>Real systems normally verify repeated readings, multiple sensors and device health.</small></div>
+</section>
+<section class="section benefit"><p class="label">05 / SOCIETAL BENEFITS</p><h2>More time, clearer priorities</h2><p>IoT monitoring can provide faster warnings, remote visibility and better emergency coordination. A district team can compare locations instead of depending only on phone reports, then allocate rescue staff, pumps or fire crews more carefully. Communities can prepare evacuation routes earlier, while maintenance teams can notice a faulty sensor. These systems reduce dependence on manual observation, but they still need trained people, trusted procedures and clear public messages.</p></section>
+<section id="sdgs" class="section">
+  <p class="label">06 / GLOBAL GOALS</p><h2>Connection to sustainable development</h2>
+  <div class="sdgs"><div class="sdg11"><span>11</span><b>Sustainable Cities & Communities</b><p>Local monitoring and timely alerts strengthen resilience, preparedness and emergency response.</p></div><div class="sdg13"><span>13</span><b>Climate Action</b><p>Environmental data and early warnings support adaptation to floods, fires, storms and other climate risks.</p></div></div>
+  <p>People-centred, multi-hazard warning systems connect risk knowledge, detection, communication and preparedness <a href="#ref2">[2]</a>. IoT is one technical layer inside that wider system, not a replacement for public planning.</p>
+</section>
+<section id="challenges" class="section two">
+  <div><p class="label">07 / LIMITS</p><h2>Challenges</h2><p>Network or power failure can interrupt the data path. Sensors may be damaged, drift out of calibration or create false alarms. Remote connectivity and maintenance cost money. Cybersecurity is equally important: fake readings or unauthorised access could reduce trust at the worst time. Reliable designs need backup power, local storage, device authentication and field checks.</p></div>
+  <div><p class="label">08 / FUTURE SCOPE</p><h2>Smarter, but accountable</h2><p>Future systems can combine AI/ML prediction, edge AI, drones and satellite observations. Digital twins may help teams test possible conditions, while multi-sensor fusion can reduce false alarms. Predictive analytics and location-based alerts could make warnings more relevant, but models must be tested with local data.</p></div>
+</section>
+<section class="section conclusion"><p class="label">09 / MY OBSERVATION</p><h2>Data matters when it becomes action</h2><p>From my point of view, the real value of IoT disaster monitoring is not the number of sensors installed or the size of a dashboard. It is whether dependable data becomes a clear warning early enough for people and authorities to respond. A sensor notices a change; a well-designed IoT system carries that change forward into a timely, practical action.</p></section>
+<section id="references" class="section">
+  <p class="label">REFERENCES</p><h2>Sources consulted</h2>
+  <ol><li id="ref1"><a href="https://www.undrr.org/terminology/early-warning-system">UNDRR, “Early warning system,” Disaster Risk Reduction Terminology.</a></li><li id="ref2"><a href="https://wmo.int/all-activities/build-resilience/early-warnings-all">World Meteorological Organization, “Early Warnings for All.”</a></li><li><a href="https://www.itu.int/en/ITU-D/Emergency-Telecommunications/Pages/Multi-hazard-early-warning-systems.aspx">International Telecommunication Union, “Multi-hazard Early Warning Systems.”</a></li><li id="ref4"><a href="https://www.undrr.org/publication/handbook-use-risk-knowledge-multi-hazard-early-warning-systems-2024">UNDRR, “Handbook on the use of Risk Knowledge for Multi-Hazard Early Warning Systems,” 2024.</a></li><li><a href="https://doi.org/10.3390/s22062124">M. Esposito et al., “Recent Advances in Internet of Things Solutions for Early Warning Systems: A Review,” Sensors, 22(6), 2124, 2022.</a></li></ol>
+  <p class="note">All illustrations, architecture diagrams and infographics on this page are original and created for this blog.</p>
+</section>
+</article>
+</main>
+<footer><span>Group 9 · IoT Field Notes</span><a href="#top">Back to top ↑</a></footer>
+<script src="script.js"></script>
+</body>
+</html>
